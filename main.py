@@ -61,4 +61,5 @@ def set_vol(v):
 
 if __name__ == "__main__":
     refresh_songs()
-    eel.start("web/index.html", size=(900, 600), port=0)
+    eel.init("web")
+    eel.start("index.html", size=(900, 600), port=0)
