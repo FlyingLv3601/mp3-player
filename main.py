@@ -61,13 +61,10 @@ def set_vol(v):
 
 @eel.expose
 def download_track(query):
-    """Скачивает трек из YouTube"""
     try:
-        # Создаём папку music, если её нет
         if not os.path.exists("music"):
-            os.makedirs("music")
+            os.makedirs("/music")
         
-        # Импортируем и вызываем функцию из ytmp3.py
         from player.ytmp3 import download_as_mp3
         download_as_mp3(query, output_folder='music')
         
