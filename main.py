@@ -2,6 +2,7 @@ import eel
 import glob
 import os
 from player.audio_engine import AudioEngine
+from player.ytmp3 import download_as_mp3
 
 engine = AudioEngine()
 
@@ -60,6 +61,22 @@ def set_vol(v):
     engine.set_volume(v)
 
 if __name__ == "__main__":
+
+    options = {
+        'mode': "chrome-app",
+        'port': 0,
+        'cmdline_args': ["--kiosk"]
+    }
+
+
     refresh_songs()
     eel.init("web")
-    eel.start("index.html", size=(450, 450), port=0)
+    eel.start(
+        "index.html", 
+        size=(450, 450), 
+        mode="chrome",
+        cmdline_args=["--kiosk"]
+    )
+
+    url = input("song url: ")
+    download_as_mp3(url)
