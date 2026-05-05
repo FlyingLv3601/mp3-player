@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/eel.js"></script>
+</head>
+<body>
+    <div class="player">
+        <div class="cover">🎵</div>
+        <div class="song-info">
+            <h2 id="song-name">Нет трека</h2>
+            <p id="counter">0 / 0</p>
+        </div>
+        <div class="controls">
+            <button onclick="prevSong()">⏮️</button>
+            <button onclick="togglePlay()" id="playBtn">▶️</button>
+            <button onclick="nextSong()">⏭️</button>
+            <button onclick="stopSong()">⏹️</button>
+        </div>
+        <div class="volume">
+            <input type="range" id="volume" min="0" max="100" value="70">
+        </div>
+        <div class="playlist">
+            <h3>Плейлист</h3>
+            <ul id="playlist"></ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -3,14 +3,11 @@ import glob
 import os
 from player.audio_engine import AudioEngine
 
-# Создаём движок
 engine = AudioEngine()
 
-# Список песен
 songs = []
 current = -1
 
-# Загружаем песни из папки music
 def refresh_songs():
     global songs
     songs = sorted(glob.glob("music/*.mp3"))
