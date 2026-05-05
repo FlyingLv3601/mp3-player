@@ -2,7 +2,6 @@ import eel
 import glob
 import os
 from player.audio_engine import AudioEngine
-from player.ytmp3 import download_as_mp3
 
 engine = AudioEngine()
 
@@ -60,15 +59,30 @@ def prev_song():
 def set_vol(v):
     engine.set_volume(v)
 
+@eel.expose
+def download_track(query):
+    """Скачивает трек из YouTube"""
+    try:
+        # Создаём папку music, если её нет
+        if not os.path.exists("music"):
+            os.makedirs("music")
+        
+        # Импортируем и вызываем функцию из ytmp3.py
+        from player.ytmp3 import download_as_mp3
+        download_as_mp3(query, output_folder='music')
+        
+        return {
+            'success': True,
+            'message': 'Track downloaded successfully!'
+        }
+        
+    except Exception as e:
+        return {
+            'success': False,
+            'message': f'Error: {str(e)}'
+        }
+
 if __name__ == "__main__":
-
-    options = {
-        'mode': "chrome-app",
-        'port': 0,
-        'cmdline_args': ["--kiosk"]
-    }
-
-
     refresh_songs()
     eel.init("web")
     eel.start(
@@ -77,6 +91,3 @@ if __name__ == "__main__":
         mode="chrome",
         cmdline_args=["--kiosk"]
     )
-
-    url = input("song url: ")
-    download_as_mp3(url)
