@@ -3,7 +3,7 @@ eel.load_songs()(songs => {
     ul.innerHTML = '';
     songs.forEach((song, i) => {
         const li = document.createElement('li');
-        li.textContent = song;
+        li.innerHTML = `<i class="fas fa-music"></i> ${song}`;
         li.onclick = () => eel.play(i);
         ul.appendChild(li);
     });
@@ -11,7 +11,13 @@ eel.load_songs()(songs => {
 
 function playPause() {
     eel.toggle()(playing => {
-        document.getElementById('playBtn').textContent = playing ? '⏸️' : '▶️';
+        const playBtn = document.getElementById('playBtn');
+        const icon = playBtn.querySelector('i');
+        if (playing) {
+            icon.className = 'fas fa-pause';
+        } else {
+            icon.className = 'fas fa-play';
+        }
     });
 }
 
@@ -23,7 +29,9 @@ eel.expose(on_play);
 function on_play(name, cur, total) {
     document.getElementById('song-name').textContent = name;
     document.getElementById('counter').textContent = `${cur} / ${total}`;
-    document.getElementById('playBtn').textContent = '⏸️';
+    const playBtn = document.getElementById('playBtn');
+    const icon = playBtn.querySelector('i');
+    icon.className = 'fas fa-pause';
 }
 
 document.getElementById('volume')?.addEventListener('input', e => {
