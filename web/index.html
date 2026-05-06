@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Music Player</title>
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="/eel.js"></script>
@@ -10,10 +12,12 @@
         <div class="cover">
             <i class="fas fa-music"></i>
         </div>
+        
         <div class="song-info">
             <h2 id="song-name">no songs</h2>
             <p id="counter">0 / 0</p>
         </div>
+        
         <div class="controls">
             <button onclick="prevSong()" class="control-btn">
                 <i class="fas fa-backward-step"></i>
@@ -25,11 +29,13 @@
                 <i class="fas fa-forward-step"></i>
             </button>
         </div>
+        
         <div class="volume">
             <i class="fas fa-volume-down volume-icon"></i>
             <input type="range" id="volume" min="0" max="100" value="70">
             <i class="fas fa-volume-up volume-icon"></i>
         </div>
+        
         <div class="playlist">
             <h3><i class="fas fa-list"></i> songs</h3>
             <ul id="playlist"></ul>
@@ -45,25 +51,19 @@
             </div>
             <div id="downloadStatus" class="download-status"></div>
         </div>
-        <div class="users-management">
-    <div class="users-header">
-        <i class="fas fa-users"></i>
-        <span>👥 Пользователи</span>
-        <span id="usersCount" style="font-size: 12px; margin-left: auto;"></span>
+        
+        <!-- Блок со списком пользователей -->
+        <div class="users-section">
+            <div class="users-header">
+                <i class="fas fa-users"></i>
+                <span>👥 Список пользователей</span>
+                <span id="usersCount" class="users-count"></span>
+            </div>
+            <div id="usersList" class="users-list"></div>
+        </div>
     </div>
     
-        <!-- Форма добавления нового пользователя -->
-        <div class="add-user-form">
-            <input type="text" id="newUserName" placeholder="Имя нового пользователя..." maxlength="30">
-            <button onclick="addNewUser()">
-                <i class="fas fa-user-plus"></i> Добавить
-            </button>
-        </div>
-        
-        <!-- Список всех пользователей -->
-        <div id="usersListContainer" class="users-list"></div>
-    </div>
-    </div>
-    <script src="main.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/users.js"></script>
 </body>
 </html>
