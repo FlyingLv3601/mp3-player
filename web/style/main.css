@@ -289,3 +289,136 @@ body {
     background: rgba(255, 255, 255, 0.1);
     color: #ffaa00;
 }
+
+.users-management {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.users-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.users-header i {
+    color: #4CAF50;
+}
+
+.add-user-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.add-user-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.add-user-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.add-user-form button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-user-form button:hover {
+    background: #45a049;
+    transform: scale(0.98);
+}
+
+.users-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.user-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.user-name {
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.user-date {
+    font-size: 10px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.delete-user {
+    background: rgba(244, 67, 54, 0.2);
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.delete-user:hover {
+    background: #f44336;
+    color: white;
+}
+
+.empty-users {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+}

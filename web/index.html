@@ -45,6 +45,24 @@
             </div>
             <div id="downloadStatus" class="download-status"></div>
         </div>
+        <div class="users-management">
+    <div class="users-header">
+        <i class="fas fa-users"></i>
+        <span>👥 Пользователи</span>
+        <span id="usersCount" style="font-size: 12px; margin-left: auto;"></span>
+    </div>
+    
+        <!-- Форма добавления нового пользователя -->
+        <div class="add-user-form">
+            <input type="text" id="newUserName" placeholder="Имя нового пользователя..." maxlength="30">
+            <button onclick="addNewUser()">
+                <i class="fas fa-user-plus"></i> Добавить
+            </button>
+        </div>
+        
+        <!-- Список всех пользователей -->
+        <div id="usersListContainer" class="users-list"></div>
+    </div>
     </div>
     <script src="main.js"></script>
 </body>

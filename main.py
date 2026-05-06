@@ -79,6 +79,46 @@ def download_track(query):
             'message': f'Error: {str(e)}'
         }
 
+
+
+import eel
+import psycopg2
+from psycopg2 import OperationalError
+
+# Параметры подключения к БД
+CONN_PARAMS = {
+    'host': 'localhost',
+    'port': 5432,
+    'database': 'ddb',
+    'user': 'lv',
+    'password': 'kurwaword'
+}
+
+@eel.expose
+def get_all_users():
+    try:
+        conn = psycopg2.connect(**CONN_PARAMS)
+        cur = conn.cursor()
+        
+        cur.execute("SELECT id, name, email FROM users ORDER BY id;")
+        rows = cur.fetchall()
+        
+        users = []
+        for row in rows:
+            users.append({
+                'id': row[0],
+                'name': row[1],
+                'email': row[2]
+            })
+        
+        cur.close()
+        conn.close()
+        return users
+        
+    except OperationalError as e:
+        print(f"db err: {e}")
+        return []
+
 if __name__ == "__main__":
     refresh_songs()
     eel.init("web")
